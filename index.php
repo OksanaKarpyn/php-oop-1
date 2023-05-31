@@ -5,17 +5,26 @@ class Movie{
     public $paese;
     public $nome;
     // costruttore
-    function  __construct( $_categorie, $_anno_Produzione, $_paese, $_nome ){
-        $this-> categorie = $_categorie;
-        $this-> anno_Produzione = $_anno_Produzione;
-        $this-> paese = $_paese;
-        $this-> nome = $_nome ;
+    function  __construct( $p_categorie, $p_anno_Produzione, $p_paese, $p_nome ){
+        $this-> categorie = $p_categorie;
+        $this-> anno_Produzione = $p_anno_Produzione;
+        $this-> paese = $p_paese;
+        $this-> nome = $p_nome ;
     }
-    
+    //metodo della classe
+    function setNovita($p_anno,$_nome){
+        $this-> anno_Produzione = $p_anno;
+        $this-> nome = $_nome;
+    }
 }
+
 // modo dinamico
 $film = new Movie( 'horror', 2022, 'USA', 'ANABEL' );
 var_dump($film);
+
+$film->setNovita(2021 , 'Harry Potter');
+var_dump($film);
+
 $serie = new Movie( 'cartone', 2023, 'UA', 'MAVKA' );
 var_dump($serie);
  
