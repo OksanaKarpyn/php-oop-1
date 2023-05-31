@@ -1,32 +1,36 @@
 <?php
-class Movie{
-    public $attori;
-    public $anno_Produzione;
-    public $paese;
-    public $nome;
-    public $genere;
-    // costruttore
-    function  __construct( $p_attori, $p_anno_Produzione, $p_paese, $p_nome,$p_genere){
-        $this-> attori = $p_attori;
-        $this-> anno_Produzione = $p_anno_Produzione;
-        $this-> paese = $p_paese;
-        $this-> nome = $p_nome;
-        $this-> genere = $p_genere;
-    }
-    //metodo set della classe
-   public function setNovita($p_anno,$_nome){
-        $this-> anno_Produzione = $p_anno;
-        $this-> nome = $_nome;
-    }
-    // metodo get nella classe
-   public function getDorame(){
-        return $this->nome.' '. $this->paese.' '.'serie';
-    }
+// class Movie{
+//     public $attori;
+//     public $anno_Produzione;
+//     public $paese;
+//     public $nome;
+//     public $genere;
+//     // costruttore
+//     function  __construct( $p_attori, $p_anno_Produzione, $p_paese, $p_nome,$p_genere){
+//         $this-> attori = $p_attori;
+//         $this-> anno_Produzione = $p_anno_Produzione;
+//         $this-> paese = $p_paese;
+//         $this-> nome = $p_nome;
+//         $this-> genere = $p_genere;
+//     }
+//     //metodo set della classe
+//    public function setNovita($p_anno,$_nome){
+//         $this-> anno_Produzione = $p_anno;
+//         $this-> nome = $_nome;
+//     }
+//     // metodo get nella classe
+//    public function getDorame(){
+//         return $this->nome.' '. $this->paese.' '.'serie';
+//     }
 
-}
+// }
+// faccio ricchiamo del file movie
+require_once __DIR__.'./models/movie.php';
+require_once __DIR__.'./models/genere.php'; 
+
 
 // modo dinamico
-$film = new Movie('attoreAnabel', 2022, 'usa', 'ANABEL',new Genere( 'fantasy-film-Harry Potter', 'comico-fil-Fantozzi','aventura-film-alice'));
+$film = new Movie('attoreAnabel', 2022, 'usa', 'ANABEL',[new Genere( 'fantasy-film-Harry Potter', 'comico-fil-Fantozzi','aventura-film-alice')]);
 var_dump($film);
 echo $film->paese;
 // stampa metodo set
@@ -38,9 +42,13 @@ $dorame = $film->getDorame();
 //var_dump($dorame);
 echo $dorame;
 
-$serie = new Movie( 'attoreMavka', 2023, 'UA', 'MAVKA',new Genere( 'fantasy-serie-vampires', 'comico-serie-camedy_club','aventura-serie-pirati') );
+$serie = new Movie( 'attoreMavka', 2023, 'UA', 'MAVKA',[new Genere( 'fantasy-serie-vampires', 'comico-serie-camedy_club','aventura-serie-pirati') ]);
 var_dump($serie);
  
+
+
+
+
 // modo statico
 // $film = new Movie();
 // $film -> categorie = 'fantasy';
@@ -55,21 +63,47 @@ var_dump($serie);
 
 
 
-class Genere{
-    public $Fantasy;
-    public $Comico;
-    public $Aventura;
-    public $Azione;
-    public $Storico;
-    public $horror;
-// costructor
-public function __construct($p_fantasy,$p_comico,$_aventura){ 
-    $this-> Fantasy = $p_fantasy;
-    $this-> Comico = $p_comico;
-    $this-> Aventura = $_aventura;
+// class Genere{
+//     public $Fantasy;
+//     public $Comico;
+//     public $Aventura;
+//     public $Azione;
+//     public $Storico;
+//     public $horror;
+// // costructor
+// public function __construct($p_fantasy,$p_comico,$_aventura){ 
+//     $this-> Fantasy = $p_fantasy;
+//     $this-> Comico = $p_comico;
+//     $this-> Aventura = $_aventura;
 
-}
-   
-}
+//  } 
+// }
 $classGenere = new Genere( 'fantasy-film-Harry Potter', 'comico-fil-Fantozzi','aventura-film-alice')
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <ul>
+                <?php  foreach ($serie as $elem){?> <li> <?php  echo $elem?></li> <?php }?>
+            </ul>
+            <div>
+                <ul>
+                    <?php  foreach ($film as $elem){?> <li> <?php  echo $elem ?></li> <?php }?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
