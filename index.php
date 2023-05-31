@@ -11,19 +11,27 @@ class Movie{
         $this-> paese = $p_paese;
         $this-> nome = $p_nome ;
     }
-    //metodo della classe
-    function setNovita($p_anno,$_nome){
+    //metodo set della classe
+   public function setNovita($p_anno,$_nome){
         $this-> anno_Produzione = $p_anno;
         $this-> nome = $_nome;
+    }
+    // metodo get nella classe
+   public function getDorame(){
+        return $this->nome.' '. $this->paese.' '.'serie';
     }
 }
 
 // modo dinamico
 $film = new Movie( 'horror', 2022, 'USA', 'ANABEL' );
 var_dump($film);
-
+// stampa metodo set
 $film->setNovita(2021 , 'Harry Potter');
+// stampa metodo set
 var_dump($film);
+$dorame = $film->getDorame();
+//var_dump($dorame);
+echo $dorame;
 
 $serie = new Movie( 'cartone', 2023, 'UA', 'MAVKA' );
 var_dump($serie);
