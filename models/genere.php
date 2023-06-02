@@ -1,17 +1,15 @@
 <?php
 
-class Genere{
+class genere {
     public $Fantasy;
     public $Comico;
     public $Aventura;
-    public $Azione;
-    public $Storico;
-    public $horror;
+   
 // costructor
-public function __construct($p_fantasy,$p_comico,$_aventura){ 
+public function __construct($p_fantasy){ 
     $this-> Fantasy = $p_fantasy;
-    $this-> Comico = $p_comico;
-    $this-> Aventura = $_aventura;
+    //$this-> Comico = $p_comico;
+    //$this-> Aventura = $_aventura;
     
 
  } 
