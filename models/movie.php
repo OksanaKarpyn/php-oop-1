@@ -12,10 +12,18 @@ class Movie{
        $this-> genere = $genere; 
      
     }
-     //metodo set della classe
+    // metodo set 
+    function setNovita($title){
+        $this->title= $title;
+    }
+     //metodo get della classe
     public function getNovita(){
-    return '  $this-> title = $title, $this-> duration = $duration';
+    return  $this->title. $this->duration. $this->genere;
 }
 }
-
+// $primoFilm= new Movie('harry potter', '140min ','fantasy',' ');
+// // set
+// $primoFilm->setNovita('alice in wonderland');
+// // get
+//  echo $primoFilm->getNovita();
 ?>
